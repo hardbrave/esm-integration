@@ -26,6 +26,16 @@ WebAssembly
   );
 ```
 
+```js
+// now
+WebAssembly.instantiateStreaming(fetch('math.wasm'))
+  .then(math => math.instance.exports.add());
+  
+// after ESM integration
+import { add } from './math.wasm';
+add();
+```
+
 A declarative API would improve the ergonomics by making this work happen implicitly.
 
 ```js
